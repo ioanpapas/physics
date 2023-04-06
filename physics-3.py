@@ -48,8 +48,8 @@ for n_try in range(4):
         I_N_values.append(I_N)
 
     
-    means.append(np.mean(W))
-    std.append(np.std(W))
+    means.append(np.mean(I_N_values))
+    std.append(np.std(I_N_values))
 
     # Create plot
     fig = plt.figure(figsize=(15, 7))
@@ -68,7 +68,7 @@ ax1 = fig2.add_subplot(111)
 std_error=np.array(std)/np.sqrt(np.array(n))
 
 ax1.set_title(f'')
-ax1.plot(n, means, '-bo', color='red', label='Means')
+ax1.errorbar(n, means, yerr=std_error, fmt='ro', markersize=5, capsize=3, ecolor='g', label='Means')
 ax1.plot(n,np.array(means)-np.array(std_error), '--', color='black', label='Lower Bound')
 ax1.plot(n,np.array(means)+np.array(std_error), '--', color='black', label='Upper Bound')
 ax1.axhline(y=0, color='blue', label='Real Value')
@@ -80,10 +80,12 @@ print (means, std)
 fig3 = plt.figure(figsize=(15,7))
 ax2=fig3.add_subplot(111)
 
-ax2.plot(n, std_error/np.array(means), '-o', label='Standard error per mean')
+e=0.02
+
+ax2.plot(n, std+e/np.array(means)+e, '-o', label='Standard error per mean')
 ax2.set_title ("Standard error per mean")
 plt.show()
-print(std_error/np.array(means))
+print(std/np.array(means))
 
 
 
