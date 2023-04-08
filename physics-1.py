@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 
 # Set path for saving the figures
-path=r"C:\Users\User\Desktop\Python\physics-efi\\"
+path=r"C:\Users\johni\Desktop\physics\images\\"
 
 # Set parameters of Weibull distribution
 k = 2
