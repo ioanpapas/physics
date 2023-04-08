@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+path=r"C:\Users\johni\Desktop\physics\images\\"
+
+
 def target_distribution(x, y):
     mean = [1, 3]
     cov = [[1**2, -0.3*1*2], [-0.3*1*2, 2**2]]

@@ -12,7 +12,7 @@ def f(x,y):
     return (x**2)*y
 
 # Set path for saving the figures
-path=r"C:\Users\User\Desktop\Python\physics-efi\\"
+path=r"C:\Users\johni\Desktop\physics\images\\"
 
 #Set the number of samples
 n=[5, 50, 200, 500]
