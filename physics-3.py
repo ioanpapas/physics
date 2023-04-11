@@ -80,10 +80,9 @@ print (means, std)
 fig3 = plt.figure(figsize=(15,7))
 ax2=fig3.add_subplot(111)
 
-
-
 ax2.plot(n, std/np.array(means), '-o', label='Standard error per mean')
 ax2.set_title ("Standard error per mean")
+fig3.savefig(path+f'askisi5_std_per_mean_N')
 plt.show()
 print(std/np.array(means))
 
