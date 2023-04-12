@@ -26,6 +26,11 @@ radius = 1
 means=[]
 std=[]
 
+fig_all=plt.figure(figsize=(15, 7))
+ax_all = fig_all.add_subplot(111)
+ax_all.set_title("Histograms of all number of samples")
+
+
 for n_try in range(4):
 
     Ν=n[n_try]
@@ -56,12 +61,14 @@ for n_try in range(4):
     ax = fig.add_subplot(111)
 
     ax.set_title(f'Histogram of value In, using N={n[n_try]} samples')
-    plt.hist(I_N_values, bins=50)
+    ax.hist(I_N_values, bins=50)
+    ax_all.hist(I_N_values, bins=50, label=f'N={n[n_try]}')
     plt.show()
 
     fig.savefig(path+f'askisi5_N={n[n_try]}', dpi=1000)
 
-
+ax_all.legend()
+fig_all.savefig(path+f'askisi5_hist_all', dpi=1000)
 fig2 = plt.figure(figsize=(15, 7))
 ax1 = fig2.add_subplot(111)
 
