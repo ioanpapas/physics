@@ -62,13 +62,17 @@ for n_try in range(4):
 
     ax.set_title(f'Histogram of value In, using N={n[n_try]} samples')
     ax.hist(I_N_values, bins=50)
-    ax_all.hist(I_N_values, bins=50, label=f'N={n[n_try]}')
+    
     plt.show()
+
+    ax_all.hist(I_N_values, bins=50, label=f'N={n[n_try]}')
 
     fig.savefig(path+f'askisi5_N={n[n_try]}', dpi=1000)
 
 ax_all.legend()
+ax_all.text(1.3, 1.3, f'mean_5={"{:.5f}".format(means[0])} std_5={"{:.3f}".format(std[0])}\n mean_50={"{:.5f}".format(means[1])} std_50={"{:.3f}".format(std[1])}\n mean_200={"{:.5f}".format(means[2])} std_200={"{:.3f}".format(std[2])}\n mean_500={"{:.5f}".format(means[3])} std_500={"{:.3f}".format(std[3])}\n', ha='center', va='center', transform=ax.transAxes, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round'))
 fig_all.savefig(path+f'askisi5_hist_all', dpi=1000)
+
 fig2 = plt.figure(figsize=(15, 7))
 ax1 = fig2.add_subplot(111)
 
