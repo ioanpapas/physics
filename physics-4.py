@@ -61,7 +61,7 @@ q = proposal_pdf
 # Set the initial values and standard deviation of the proposal distribution.
 x0 = 0.5
 y0 = 0.5
-sigma = 2
+sigma = 0.1
 
 # Run the Metropolis-Hastings algorithm.
 n = 1000
@@ -74,8 +74,8 @@ print(np.cov(np.transpose(samples)))
 fig2 = plt.figure(figsize=(15, 7))
 ax1 = fig2.add_subplot(111)
 ax1.scatter(samples[:, 0], samples[:, 1], s=2)
-ax1.set_title("Scatter plot of the samples")
-fig2.savefig(path+f'askisi6_scatter', dpi=1000)
+ax1.set_title(f"Scatter plot of the samples sigma={sigma}")
+fig2.savefig(path+f'askisi6_scatter_sigma=0,1', dpi=1000)
 
 
 fig, ax = plt.subplots(3, figsize=(18, 10))
@@ -83,7 +83,7 @@ fig.suptitle("Autocorrelation plot for different sigmas")
 i=0
 for sigma in [2, 0.5, 0.1]:
     samples = metropolis_hastings(p, q, x0, y0, sigma, n)
-    ax[i].acorr(samples[:, 0], label=f'sigma={sigma}')
+    ax[i].acorr(samples[:, 0], label=f'sigma={sigma}', maxlags=50)
     ax[i].set_title(f"Autocorrelation for sigma={sigma}")
     i=i+1
 
