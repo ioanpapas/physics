@@ -58,26 +58,26 @@ for i in range(10000):
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(15, 8))
 fig.suptitle("Estimation of the parameters")
 ax[0].set_title(f'Distribution of parameter a')
-ax[0].hist(b, bins=50)
+ax[0].hist(b, bins=50, range=[3, 7])
 ax[1].set_title(f'Distribution of parameter b')
-ax[1].hist(a, bins=50)
+ax[1].hist(a, bins=50, range=[-0.8, -0.3])
 
 
 fig1, ax1 = plt.subplots(nrows=1, ncols=2, figsize=(15, 8))
 fig1.suptitle("Standardized residuals")
 ax1[0].set_title(f'Distribution of standardized residual of parameter a')
-ax1[0].hist(estB, bins=50)
+ax1[0].hist(estB, bins=50, range=[-6, 8])
 ax1[1].set_title(f'Distribution of standardized residual of parameter b')
-ax1[1].hist(estA, bins=50)
+ax1[1].hist(estA, bins=50, range=[-8, 6])
 
 
 
 fig2, ax2 = plt.subplots(nrows=1, ncols=2, figsize=(15, 8))
 fig2.suptitle("Statistics of estimation")
 ax2[0].set_title(f'Distribution of chi squared')
-ax2[0].hist(chi2_arr, bins=50)
+ax2[0].hist(chi2_arr, bins=50, range=[0, 1])
 ax2[1].set_title(f'Distribution of p-value')
-ax2[1].hist(pvalue, bins=50)
+ax2[1].hist(pvalue, bins=50, range=[0.998, 1])
 
 
 
